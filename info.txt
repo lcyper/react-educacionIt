@@ -1,0 +1,181 @@
+https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
+
+Este comando nos instala global el programa para crear una plantilla basica de React
+> npm i -g create-react-app
+
+Este comando nos crea la plantilla
+> create-react-app <carpeta>
+
+
+react react-dom
+
+1- Siempre tiene que estar la variable React en scope 
+2- Un componente de React es una funcion
+
+        function app(){}
+        let app = function(){}
+        let app = () => {}
+        class app {}
+
+3- Un componente de React SIEMPRE tiene que tener retorno (String,elemento de DOM,otro componente de React)
+4- Un componente de React tiene que arrancar en mayuscula
+5- Un componente ejecutado se escribe en JSX : 
+
+        App()       ===     <App/>
+
+6- Un componente de React solo puede retornar una UNICA COSA
+7- Si el componente es de tipo Class tiene que extender a la class React.Component y tener como minimo el metodo render(Que es el encargado dentro de sus siclos de vida de dibujar el contenido del componente )
+8- Un componente ejecuta su render SIEMPRE que reciba nuevos parametros o haya cambiado su estado local
+9- El estado de un componente no se puede cambiar por reasignacion de valor, es decir : 
+        this.state.prop = nuevoValor
+
+Ya que lo tenemos que hacer siempre usando la funcion this.setState la cual describe un nuevo estado 
+10- El estado de un componente SOLO puede ser modificado por ese componente
+11- Los componentes reciben UNA SOLA VARIABLE en donde estan todos los parametros
+
+
+
+
+
+
+PROPS : Se escriben como atributos de HTML pero en realidad estamos pasando un parametro a una funcion(componente de React)
+
+App()                ===     <App/>
+App({key:"2"})       ===     <App key="2"/>
+Header({links:[]})  <Header links=[...]/>
+
+
+
+
+
+
+
+/src
+    |_index.js
+    |_api/
+    |_ui/
+        |_layout/
+            |_App.js
+            |_Header.js
+            |_Footer.js
+            |_Main.js
+        |_paginas/
+        |_componentes/
+            |_Contador.js
+
+
+
+
+
+----------------------------------------------------------
+Si el cuerpo de una funcion lo unico que hace es retornar algo, podemos obviar las llaves y la palabra return
+let a = () => { return b }
+let a = () =>  b 
+
+let a = () => { return () => {} }
+let a = () => () => {} 
+
+Si la funcion toma un solo parametro podemos obviar los parentesis
+let a = (b) => { return b }
+let a = b =>  b
+----------------------------------------------------------------
+
+
+let obj = {x:1,y:2,z:3}
+
+let {x,y,z} = obj
+let {x:x,y:y,z:z} = obj
+
+let x = obj.x
+let y = obj.y
+let z = obj.z
+
+
+
+
+let arr = [1,2,3]
+
+let r = arr.forEach((elemento,indice)=>{
+        
+})
+
+
+let r = arr.map((elemento,indice)=>{
+        return elemento + 1
+})
+
+
+arr.filter(()=>{})
+arr.sort(()=>{})
+arr.reduce(()=>{})
+
+
+
+window.foo = function foo(){}
+var foo = function foo(){}
+
+function foo(a,b,e){
+        console.log(a,b)
+        console.log(this)
+}
+
+
+document.addEventListener("click",(e)=>{ foo(1,2,e.target.value) })
+
+document.addEventListener("click",foo.bind(null,1,2))
+
+
+foo()
+new foo
+foo(1,2) 1 2 window{}
+foo.apply({x:1},[1,2]) 1 2 {x:1}
+foo.call({x:1},1,2) 1 2 {x:1}
+
+let copia_foo = foo.bind({x:1},1,2)
+copia_foo()
+
+
+REST / SPREAD (...)
+
+
+function foo(...props){
+        [1,2,3]
+}
+
+foo(1,2,3)
+
+
+
+let a = {
+        x : 1,
+        y : 2,
+        z : 3
+}
+
+let b = {...a}
+
+
+
+class App extends Component {
+
+
+        constructur(){
+                this.state = {
+                        x:1,
+                        y:2,
+                        z:3
+                }
+        }
+
+        render(){
+                
+                return(
+                        <Header 
+                                {...this.state}
+                        />
+                )
+        }
+
+}
+
+
