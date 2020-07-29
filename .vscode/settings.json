@@ -1,0 +1,6 @@
+{
+    "eslint.esversion" : 6,
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    }
+}
