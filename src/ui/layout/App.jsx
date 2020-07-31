@@ -51,13 +51,12 @@ class App extends React.Component {
         //let copia_usuarios = [...this.state.usuarios,usuario] 
         usuarios.nombre = "";
         usuarios.apellido = "";
-        this.setState({usuarios})
+        this.setState({ usuarios })
     }
 
     modificarValor = (e) => {
         let value = e.target.value;
         let tipo = e.target.id;
-        // console.log(tipo, value)
         let usuarios = { ...this.state.usuarios }
         usuarios[tipo] = value;
         // console.log(usuarios);
@@ -66,17 +65,29 @@ class App extends React.Component {
     }
     modificarUsuario = (e) => {
         //pasa lo guardado en state a los inputs
-        let usuarios = {...this.state.usuarios}
-        let index = e.target.dataset.ref;
+        let usuarios = { ...this.state.usuarios }
+        let index = e.target.parentNode.dataset.ref;
         usuarios.editarUsuario = [true, index]
-        console.log(this.state.usuarios.usuarios[index])
         usuarios.nombre = this.state.usuarios.usuarios[index].nombre
         usuarios.apellido = this.state.usuarios.usuarios[index].apellido
         // this.setState({usuarios : this.state.usuarios.usuarios[index]})
-        this.setState({usuarios})
-        // console.log(this.state.usuarios)
-        //.dataset.ref
-        // this.state.usuarios[]
+        this.setState({ usuarios })
+    }
+    borrarUsuario = (e) => {
+        let usuarios = { ...this.state.usuarios }
+        let index = e.target.parentNode.dataset.ref;
+        usuarios.usuarios.splice(index, 1)
+        // usuarios.nombre = "";
+        // usuarios.apellido = "";
+        usuarios.editarUsuario = false
+        this.setState({ usuarios })
+    }
+    cancelarEditarUsuario = (e) => {
+        let usuarios = { ...this.state.usuarios }
+        usuarios.nombre = "";
+        usuarios.apellido = "";
+        usuarios.editarUsuario = false
+        this.setState({ usuarios })
     }
 
 
@@ -123,6 +134,8 @@ class App extends React.Component {
                     modificarValor={this.modificarValor}
                     usuarios={usuarios}
                     modificarUsuario={this.modificarUsuario}
+                    borrarUsuario={this.borrarUsuario}
+                    cancelarEditarUsuario={this.cancelarEditarUsuario}
                 />
                 {/* 
                 <Usuarios 
