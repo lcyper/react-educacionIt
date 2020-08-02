@@ -1,0 +1,147 @@
+:root{
+    --color-primary : #767ac6;
+    --color-secundary :#5b6eae;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+
+}
+#root{}
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-primary);
+    padding: 1em;
+    color: white;
+    align-items: center;
+}
+header h1 {
+    color: white;
+    letter-spacing: 3px;
+    margin: 0 0.5em;
+}
+header nav{
+
+}
+header nav a{
+    text-decoration: none;
+    padding: 0.5em 1em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 400;
+    border-radius: 5%;
+    margin-left: 5px;
+}
+header nav a:hover{
+    background-color: var(--color-secundary);
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main h2{}
+
+.contador{
+    display: inline-block;
+    padding: 1em;
+    margin: 0 auto;
+}
+.contador p{
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.contador button{
+    color: white;
+    border: 0;
+    padding: 10px;
+    background-color: black;
+}
+.contador button:first-of-type{
+    background-color: rgb(221, 97, 40);
+    border-radius: 7px 0 0 7px;
+}
+.contador button:last-of-type{
+    background-color: rgb(70, 160, 70);
+    border-radius: 0 7px 7px 0;
+}
+hr{
+    width: 400px;
+    height: 5px;
+    background-color: var(--color-secundary);
+    border-radius: 15px;
+    margin: 3em auto;
+}
+form{
+    padding: 1em 2em;
+    max-width: 150px;
+    display: flex;
+    flex-flow: column;
+    margin: auto;
+    border: var(--color-primary) dashed;
+    border-radius: 15px;
+}
+form input, form button{
+    padding: 0.5em;
+    display: block;
+    text-align: center;
+    width: 100%;
+    border: 0;
+    box-sizing: border-box;
+}
+form input:focus{
+    border-bottom: var(--color-primary) solid 2px;
+    outline: 0;
+}
+form button{
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    color: white;
+}
+form button:hover{
+    background-color: var(--color-secundary);
+}
+#listaUsuarios{
+    padding: 1em;
+}
+#listaUsuarios h3{}
+
+#listaUsuarios ul{
+    padding-inline-start: 1em;
+}
+
+#listaUsuarios ul li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+    margin: 0.3em 0;
+    padding-left: 1em;
+    align-items: center;
+}
+#listaUsuarios ul li:hover{
+    background-color: var(--color-secundary);
+    color: white;
+    border-radius: 5px;
+}
+button.material-icons{
+    border: 0;
+    background-color: var(--color-primary);
+    color: white;
+    margin: 0.1em 0.2em;
+    border-radius: 3px;
+}
+button.material-icons:hover{
+    background-color: var(--color-secundary);
+    transform: scale(1.2);
+    color: black;
+}
+footer{
+    text-align: center;
+    padding: 0.2em;
+    font-size: 700;
+    color: white;
+    letter-spacing: 2px;
+    background-color: var(--color-primary);
+}
