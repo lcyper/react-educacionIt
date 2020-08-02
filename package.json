@@ -32,8 +32,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
   },
   "jshintConfig": {
     "esversion": 7
+=======
+>>>>>>> d1d3f1e6eff0a3069bc88b68f603990657574465
   }
 }
