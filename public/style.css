@@ -84,6 +84,7 @@ form{
 }
 form input, form button{
     padding: 0.5em;
+    margin: 0.3em 0;
     display: block;
     text-align: center;
     width: 100%;
@@ -98,12 +99,15 @@ form button{
     background-color: var(--color-primary);
     border-radius: 5px;
     color: white;
+    flex-flow: row;
 }
 form button:hover{
     background-color: var(--color-secundary);
 }
 #listaUsuarios{
     padding: 1em;
+    max-width: 40%;
+    margin: 0 auto;
 }
 #listaUsuarios h3{}
 
@@ -144,4 +148,10 @@ footer{
     color: white;
     letter-spacing: 2px;
     background-color: var(--color-primary);
+}
+footer a{
+    color: white;
+    font-weight: normal;
+    border-bottom: 3px solid;
+    text-decoration: none;
 }

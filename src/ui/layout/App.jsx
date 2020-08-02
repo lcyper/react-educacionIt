@@ -35,7 +35,6 @@ class App extends React.Component {
         //[true/false, index] para actualizar usuario
         let usuarios = { ...this.state.usuarios };
         if (this.state.usuarios.editarUsuario[0]) {
-            console.log("editando usuario")
             let index = this.state.usuarios.editarUsuario[1];
             //actualizando usuarios espesifico
             usuarios.usuarios[index] = { nombre: this.state.usuarios.nombre, apellido: this.state.usuarios.apellido }
@@ -66,7 +65,7 @@ class App extends React.Component {
     modificarUsuario = (e) => {
         //pasa lo guardado en state a los inputs
         let usuarios = { ...this.state.usuarios }
-        let index = e.target.parentNode.dataset.ref;
+        let index = e.target.parentNode.parentElement.dataset.ref;
         usuarios.editarUsuario = [true, index]
         usuarios.nombre = this.state.usuarios.usuarios[index].nombre
         usuarios.apellido = this.state.usuarios.usuarios[index].apellido
@@ -75,7 +74,7 @@ class App extends React.Component {
     }
     borrarUsuario = (e) => {
         let usuarios = { ...this.state.usuarios }
-        let index = e.target.parentNode.dataset.ref;
+        let index = e.target.parentNode.parentElement.dataset.ref;
         usuarios.usuarios.splice(index, 1)
         // usuarios.nombre = "";
         // usuarios.apellido = "";
